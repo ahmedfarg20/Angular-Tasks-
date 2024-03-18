@@ -1,0 +1,49 @@
+<div class="card mx-2 product-shadow" [appHighlight]="product.quantity||0" [quantity]="product.id"
+  (click)="handleRoute( $event,product.id)" style="width: 18rem;  ">
+  <img class="card-img-top" [src]="product.imgURL" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">{{product.name}}</h5>
+    <p class="card-text">{{product.categoryID}}
+    </p>
+    <p class="card-text">{{product.description}}
+    </p>
+    <p class="card-text">{{product.price| currency:'EGP'}}
+    </p>
+    <p class="card-text">{{product.quantity}}
+    </p>
+    @if (product.discountValue!="No discount") {
+    <h3 class="card-text">We offer an explicit discount of:{{product.discountValue}}
+    </h3>}
+    @else{
+    <h3 class="card-text opacity-0">We offer an explicit discount of:{{product.discountValue}}
+    </h3>
+    }
+    @if (product.quantity==0) {
+    <a href="#" class="btn btn-primary disabled bg-danger">Buy</a>
+    }
+    @else if(product.quantity==1) {
+    <a href="#" class="btn btn-primary bg-warning">Buy</a>}
+    @else {
+    <a href="#" class="btn btn-primary">Buy</a>}
+    @if (product.quantity==0) {
+    <a href="#" class="btn btn-primary disabled">add to cart</a>
+    }
+    @else if(product.quantity>0) {
+    <a class="btn btn-primary " (click)="addProductToCart($event,product)">add to cart</a>}
+
+    @switch (product.quantity) {
+    @case (0) {
+    <p class="text-danger">out of stock</p>
+    }
+    @case (1) {
+    <p class="text-danger">Only 1 left in stock</p>
+    }
+    @case (2) {
+    <p class="text-warning">Only 2 left in stock</p>
+    }
+    @default{
+    <p>Only {{product.quantity}} left in stock</p>
+    }
+    }
+  </div>
+</div>

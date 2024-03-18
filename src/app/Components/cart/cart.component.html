@@ -1,0 +1,26 @@
+<a class="nav-link" routerLink="product/id" routerLinkActive="router-link-active">Details</a>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Price</th>
+      <th scope="col">Quantity</th>
+    </tr>
+  </thead>
+  <tbody>
+    @if (products.length==0) {
+    <span class="text-warning">No items in Cart</span>
+    }
+    @for (product of products; track $index) {
+    <tr>
+      <th scope="row">{{$index+1}}</th>
+      <td>{{product.name}}</td>
+      <td>{{product.price}}</td>
+      <td>{{product.quantity}}</td>
+      <td><button class="btn btn-primary" routerLink="/product/{{product.id}}">details</button></td>
+    </tr>
+    }
+
+  </tbody>
+</table>

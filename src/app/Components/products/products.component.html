@@ -1,0 +1,25 @@
+<!-- <p class="text-danger text-center">{{clientName}}</p>
+<button class="btn btn-primary mx-2" (click)="handleToggleImg()">{{showImg?"HideImg":"ShowImg"}}</button> -->
+<!-- <img [src]="showImg? '../../../assets/logo.png':''"> -->
+<!-- @if (showPurchase) {
+<div>
+  <p>Thanks for purchasing from our Store{{clientName}}</p>
+</div>}
+@else {
+<img [src]=" '../../../assets/logo.png'">
+} -->
+<!-- https://picsum.photos/seed/picsum/100/50 -->
+<!-- <img [src]="imgsrc" alt="" srcset="">
+<div class="mb-2">
+  <button [disabled]="isBtnDisabled" class="btn btn-primary mx-2">Enabled</button>
+  <button [disabled]="!isBtnDisabled" class="btn btn-info">Disabled</button>
+</div>
+<img [src]="isBtnDisabled? '../../../assets/logo.png':'https://picsum.photos/seed/picsum/100/50'">
+
+
+ -->
+<div class="p-2 products-container row g-3">
+  @for (Parentproduct of products; track Parentproduct.id) {
+  <app-single-product class="col-4" [product]="Parentproduct"></app-single-product>
+  }
+</div>
